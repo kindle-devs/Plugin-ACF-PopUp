@@ -1,0 +1,74 @@
+.kindlePopup {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    transition: opacity 0.5s;
+    padding: 40px;
+    overflow: auto;
+
+    &:not(.active) {
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__container {
+        display: grid;
+        width: fit-content;
+        margin: 0 auto;
+        max-width: 90%;
+        height: 100%;
+        border-radius: 7px;
+
+        a,
+        img {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        position: relative;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        align-self: center;
+
+        &:not(.kindlePopup__onlyImg) {
+            max-width: 500px;
+        }
+    }
+
+    &__onlyImg {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        color: transparent;
+        font-size: 1px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 60.963 60.842' style='enable-background:new 0 0 60.963 60.842;' xml:space='preserve'%3E%3Cpath style='fill:%23231F20;' d='M59.595,52.861L37.094,30.359L59.473,7.98c1.825-1.826,1.825-4.786,0-6.611 c-1.826-1.825-4.785-1.825-6.611,0L30.483,23.748L8.105,1.369c-1.826-1.825-4.785-1.825-6.611,0c-1.826,1.826-1.826,4.786,0,6.611 l22.378,22.379L1.369,52.861c-1.826,1.826-1.826,4.785,0,6.611c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369 l22.502-22.502l22.501,22.502c0.913,0.913,2.109,1.369,3.306,1.369s2.393-0.456,3.306-1.369 C61.42,57.647,61.42,54.687,59.595,52.861z'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 17px;
+        z-index: 3;
+    }
+
+    &__onlyImg &__close {
+        filter: invert(100%);
+    }
+}
